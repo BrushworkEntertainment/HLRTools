@@ -82,9 +82,6 @@ void setIMGUIStyle(float multiplier)
 
 	ImGui::GetStyle().DisplaySafeAreaPadding = ImVec2(3, 1);
 
-	ImFontConfig fontConfig;
-	fontConfig.SizePixels = 13 * multiplier;
-
 	ImVec4* colours = ImGui::GetStyle().Colors;
 	colours[ImGuiCol_TextDisabled] = ImVec4(0.47f, 0.47f, 0.47f, 1.00f);
 	colours[ImGuiCol_WindowBg] = ImVec4(0.14f, 0.16f, 0.22f, 1.00f);
@@ -180,9 +177,14 @@ int main()
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
 
-	std::cout << multiplier << std::endl;
+#ifdef CFG_DEBUG
+	std::cout << 
+		multiplier << 
+		std::endl;
+#endif
 
 	setIMGUIStyle(multiplier);
+	io.FontGlobalScale = 1 * multiplier;
 
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 460");
