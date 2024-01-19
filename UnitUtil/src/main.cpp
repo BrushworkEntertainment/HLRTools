@@ -155,7 +155,7 @@ int main()
 	winX *= multiplier;
 	winY *= multiplier;
 
-	GLFWwindow* window = glfwCreateWindow(winX, winY, "HLRTools", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(winX, winY, "HLRTools v0.0.1", nullptr, nullptr);
 
 	if (!window)
 	{
